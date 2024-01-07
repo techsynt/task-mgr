@@ -3,7 +3,7 @@ services:
   nginx:
     image: nginx:stable-alpine
     volumes:
-      - '.:/srv'
+      - '.:/var/www/task-mgr'
       - './docker/nginx/conf.d:/etc/nginx/conf.d'
     ports:
       - '8080:80'
@@ -17,7 +17,7 @@ services:
       context: .
       dockerfile: docker/php/Dockerfile
     volumes:
-      - '.:/srv'
+      - '.:/var/www/task-mgr'
 
   db:
     image: postgres:${POSTGRES_VERSION:-15}-alpine
@@ -28,7 +28,6 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-app}
     volumes:
       - db_data:/var/lib/postgresql/data:rw
-
 
 volumes:
   db_data:
