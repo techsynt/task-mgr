@@ -72,6 +72,7 @@
     "require-dev": {
         "symfony/maker-bundle": "^1.52",
         "symfony/stopwatch": "6.4.*",
-        "symfony/web-profiler-bundle": "6.4.*"
+        "symfony/web-profiler-bundle": "6.4.*",
+        "friendsofphp/php-cs-fixer": "v3.46.0"
     }
 }
