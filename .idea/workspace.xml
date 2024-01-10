@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1cd247f4-e6b4-4e80-9db2-ab95398accef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/TaskController.php" afterDir="false" />
+    <list default="true" id="1cd247f4-e6b4-4e80-9db2-ab95398accef" name="Changes" comment="bootstrap page created">
+      <change afterPath="$PROJECT_DIR$/public/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/styles/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/task/homepage.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TaskController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +100,7 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
       <path value="$PROJECT_DIR$/vendor/friendsofphp/php-cs-fixer" />
       <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/asset" />
     </include_path>
   </component>
   <component name="ProjectId" id="2aWlAoWRdcnHpFJ6T3TfpEHkvib" />
@@ -107,24 +111,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/techsynt/PhpstormProjects/task-mgr/src&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.php.quality.tools&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/techsynt/PhpstormProjects/task-mgr/public/js",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/js" />
+      <recent name="$PROJECT_DIR$/public/styles" />
       <recent name="$PROJECT_DIR$/docker" />
       <recent name="$PROJECT_DIR$/docker/php" />
       <recent name="$PROJECT_DIR$" />
@@ -194,7 +200,8 @@
       <workItem from="1704712796999" duration="29000" />
       <workItem from="1704712827704" duration="212000" />
       <workItem from="1704713199314" duration="6728000" />
-      <workItem from="1704781191154" duration="1248000" />
+      <workItem from="1704781191154" duration="17209000" />
+      <workItem from="1704881304816" duration="6520000" />
     </task>
     <task id="LOCAL-00001" summary="added gitignore">
       <created>1704443382505</created>
@@ -217,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704712212792</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="installed php-cs-fixer">
+      <created>1704782534272</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1704782534272</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +255,8 @@
     <MESSAGE value="added gitignore" />
     <MESSAGE value="symfony skeleton created" />
     <MESSAGE value="some bundles installed" />
-    <option name="LAST_COMMIT_MESSAGE" value="some bundles installed" />
+    <MESSAGE value="installed php-cs-fixer" />
+    <MESSAGE value="bootstrap page created" />
+    <option name="LAST_COMMIT_MESSAGE" value="bootstrap page created" />
   </component>
 </project>

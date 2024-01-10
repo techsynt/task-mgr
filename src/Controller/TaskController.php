@@ -2,15 +2,15 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class TaskController
+class TaskController extends AbstractController
 {
-    #[Route('/{number}')]
-    public function homepage(string $number = null): Response
+    #[Route('/', name: 'app_homepage')]
+    public function homepage(): Response
     {
-        $title = $number;
-        return new Response("hi\n".$number);
+        return $this->render('task/homepage.html.twig');
     }
 }
