@@ -8,9 +8,9 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class TaskController extends AbstractController
 {
-    #[Route('/', name: 'app_homepage')]
+    #[Route('/', name: 'app_browse')]
     public function homepage(): Response
     {
-        return $this->render('task/homepage.html.twig');
+        return $this->render('task/browse.html.twig');
     }
 }
