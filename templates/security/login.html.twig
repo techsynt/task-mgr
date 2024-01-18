@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title%}
+    Форма авторизации
+{% endblock %}
+{% block body %}
+    <div class="container text-center d-flex justify-content-center">
+        <div class="row"  style="margin: 50px">
+            <div class="col border" style="padding: 20px">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey }}</div>
+                {% endif %}
+                {{ form(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
