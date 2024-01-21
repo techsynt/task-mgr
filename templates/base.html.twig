@@ -47,7 +47,9 @@
                             <a class="nav-link" href="{{ path('app_browse') }}">Главная</a>
                         </li>
                         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_add_task') }}">Добавить задачу</a>
+                            </li>
                         {% else %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('app_registration') }}">Регистрация</a>
