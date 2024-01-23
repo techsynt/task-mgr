@@ -4,6 +4,7 @@ namespace App\Form\Type;
 
 use App\Entity\Task;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -29,6 +30,13 @@ class TaskType extends AbstractType
             ->add('content', TextareaType::class, [
                 'label' => false,
                 'attr' => ['placeholder' => 'Текст задачи'],
+            ])
+            ->add('createdAt', DateType::class, [
+                'widget' => 'single_text',
+                'input' => 'datetime_immutable',
+                'html5' => false,
+                'label' => false,
+                'disabled' => true,
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Добавить задачу',
