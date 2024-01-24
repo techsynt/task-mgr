@@ -39,7 +39,7 @@ class TaskController extends AbstractController
     }
 
     #[Route('/add', methods: 'POST')]
-    public function add(Request $request, EntityManagerInterface $entityManager): RedirectResponse
+    public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
         $form = $this->returnForm();
         $form->handleRequest($request);
@@ -49,6 +49,7 @@ class TaskController extends AbstractController
             $entityManager->flush();
             return new RedirectResponse('/');
         }
+        return $this->json('something went wrong');
     }
 
     #[Route('/', name: 'app_browse')]

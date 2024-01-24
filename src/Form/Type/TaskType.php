@@ -40,6 +40,7 @@ class TaskType extends AbstractType
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Добавить задачу',
+                'attr' => ['class' => 'btn-warning'],
             ]);
     }
 }
