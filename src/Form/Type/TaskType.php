@@ -33,10 +33,7 @@ class TaskType extends AbstractType
             ])
             ->add('createdAt', DateType::class, [
                 'widget' => 'single_text',
-                'input' => 'datetime_immutable',
                 'html5' => false,
-                'label' => false,
-                'disabled' => true,
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Добавить задачу',

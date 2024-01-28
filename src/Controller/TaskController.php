@@ -13,40 +13,29 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class TaskController extends AbstractController
 {
-    private $task;
-
-    private function getTask(): Task
-    {
-        if (null === $this->task) {
-            $this->task = new Task();
-            $this->task->setOwner($this->getUser());
-        }
-
-        return $this->task;
-    }
-
-    private function returnForm(): \Symfony\Component\Form\FormInterface
-    {
-        return $this->createForm(TaskType::class, $this->getTask());
-    }
-
     #[Route('/add', name: 'app_add_task', methods: 'GET')]
     public function addTask(): Response
     {
+        $task = new Task();
+        $form = $this->createForm(TaskType::class, $task);
+
         return $this->render('task/add_task.html.twig', [
-            'form' => $this->returnForm(),
+            'form' => $form,
         ]);
     }
 
     #[Route('/add', methods: 'POST')]
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->returnForm();
+        $task = new Task();
+        $task->setOwner($this->getUser());
+        $form = $this->createForm(TaskType::class, $task);
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $task = $form->getData();
             $entityManager->persist($task);
             $entityManager->flush();
+
             return new RedirectResponse('/');
         }
         return $this->json('something went wrong');
@@ -56,5 +45,20 @@ class TaskController extends AbstractController
     public function homepage(): Response
     {
         return $this->render('task/browse.html.twig');
+    }
+
+    #[Route('/dates', methods : 'GET')]
+    public function dates()
+    {
+        if ($this->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            $user = $this->getUser();
+            $tasks = $user->getTasks();
+            $dates = [];
+            foreach ($tasks as $task) {
+                $dates[] = $task->getCreatedAt();
+            }
+
+            return $this->json($dates);
+        }
     }
 }

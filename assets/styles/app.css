@@ -12,3 +12,12 @@ h1 {
     margin-bottom: 12px;
     display: inline-block;
 }
+.highlighted-cal-dates{
+    background-color: #FFD580;
+    text-decoration: underline black;
+}
+
+#task_createdAt{
+    pointer-events:none;
+    background-color:  #eeeeee ;
+}

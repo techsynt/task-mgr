@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block javascripts%}
     {{ parent() }}
-    {{ encore_entry_script_tags('datepicker') }}
+    {{ encore_entry_script_tags('tasks') }}
+{#    {{ encore_entry_script_tags('datepicker') }}#}
+
 {% endblock %}
 {% block stylesheets%}
     {{ parent() }}
@@ -11,7 +13,7 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-3 border">
-                <b>Выберите дату</b>
+                <b>Ваши задачи по датам</b><br><span>(Кликните по дате чтобы отобразить)</span>
                 <div class="js-datepicker m-lg-5 card"></div>
             </div>
             <div class="col border">

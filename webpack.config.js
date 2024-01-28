@@ -28,6 +28,9 @@ Encore
     .addEntry('addTask', [
         './assets/js/addTask.js'
     ])
+    .addEntry('tasks', [
+        './assets/js/tasks.js'
+    ])
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
 
