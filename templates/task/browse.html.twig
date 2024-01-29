@@ -16,9 +16,17 @@
                 <b>Ваши задачи по датам</b><br><span>(Кликните по дате чтобы отобразить)</span>
                 <div class="js-datepicker m-lg-5 card"></div>
             </div>
-            <div class="col border">
-                Задачи
+
+
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <div id="tasks" class="col border">
+                <b>Задачи:</b>
+
+                <div class="row append_tasks">
+
+                </div>
             </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

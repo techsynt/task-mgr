@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Task;
 use App\Form\Type\TaskType;
+use App\Repository\TaskRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,11 +40,12 @@ class TaskController extends AbstractController
 
             return new RedirectResponse('/');
         }
+
         return $this->json('something went wrong');
     }
 
     #[Route('/', name: 'app_browse')]
-    public function homepage(): Response
+    public function homepage(Request $request): Response
     {
         return $this->render('task/browse.html.twig');
     }
@@ -60,5 +63,29 @@ class TaskController extends AbstractController
 
             return $this->json($dates);
         }
+    }
+
+    #[Route('/get_tasks')]
+    public function getDates(Request $request, TaskRepository $taskRepository)
+    {
+        if (null != $request->request->all()) {
+            $date = new \DateTimeImmutable($request->request->get('date'));
+            $tasks = $taskRepository->findBy(['createdAt' => $date]);
+            $taskObjects = [];
+            foreach ($tasks as $number => $task) {
+                $taskObjects[$number] = ['id' => $task->getId(), 'title' => $task->getTitle(), 'content' => $task->getContent()];
+            }
+
+            return new JsonResponse($taskObjects);
+        }
+    }
+    #[Route('/delete/task{id}')]
+    public function deleteTask($id, TaskRepository $taskRepository, EntityManagerInterface $entityManager)
+    {
+        $task = $taskRepository->find($id);
+        $entityManager->remove($task);
+        $entityManager->flush();
+
+        return new RedirectResponse('/');
     }
 }
